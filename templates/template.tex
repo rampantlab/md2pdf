@@ -1,0 +1,108 @@
+\documentclass{article}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{parskip}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{framed}
+\usepackage{xcolor}
+\usepackage{listings}
+% Load the Markdown package and set its options.
+\usepackage[
+  contentBlocks,
+  debugExtensions,
+  definitionLists,
+  fancy_lists,
+  fencedCode,
+  hashEnumerators,
+  inlineNotes,
+  jekyllData,
+  lineBlocks,
+  notes,
+  pipeTables,
+  rawAttribute,
+  smartEllipses,
+  strikeThrough,
+  subscripts,
+  superscripts,
+  tableCaptions,
+  taskLists,
+  texMathDollars,
+  texMathDoubleBackslash,
+  texMathSingleBackslash,
+]{markdown}
+
+% Disable section numbering
+\setcounter{secnumdepth}{0}
+
+% Set the default style for generic text code blocks
+\lstset{
+  basicstyle=\ttfamily\small,
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  stepnumber=1,
+  numbersep=5pt,
+  showstringspaces=false,
+  breaklines=true,
+  frame=single,
+  rulecolor=\color{black},
+}
+
+% Define the style for Bash code
+\lstdefinestyle{bash}{
+  language=bash,
+  keywordstyle=\color{blue},
+  commentstyle=\color{gray},
+  stringstyle=\color{red},
+}
+
+% Define the style for Python code
+\lstdefinestyle{python}{
+  language=python,
+  keywordstyle=\color{blue},
+  commentstyle=\color{gray},
+  stringstyle=\color{red},
+}
+
+% Define a custom style for JSON code
+\lstdefinestyle{custom1}{
+  basicstyle=\ttfamily\small,
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  stepnumber=1,
+  numbersep=5pt,
+  showstringspaces=false,
+  breaklines=true,
+  frame=single,
+  rulecolor=\color{black},
+  moredelim=**[is][\color{red}]{@}{@},
+  literate=
+   *{0}{{{\color{blue}0}}}{1}
+    {1}{{{\color{blue}1}}}{1}
+    {2}{{{\color{blue}2}}}{1}
+    {3}{{{\color{blue}3}}}{1}
+    {4}{{{\color{blue}4}}}{1}
+    {5}{{{\color{blue}5}}}{1}
+    {6}{{{\color{blue}6}}}{1}
+    {7}{{{\color{blue}7}}}{1}
+    {8}{{{\color{blue}8}}}{1}
+    {9}{{{\color{blue}9}}}{1}
+    {:}{{{\color{red}:}}}{1}
+    {,}{{{\color{red},}}}{1}
+    {\{}{{{\color{gray}\{}}}{1}
+    {\}}{{{\color{gray}\}}}}{1}
+    {[}{{{\color{gray}[}}}{1}
+    {]}{{{\color{gray}]}}}{1},
+}
+
+\usepackage{minted}
+\setminted{
+    frame=single,    % Adds a box around the code
+    linenos          % Adds line numbers
+}
+\begin{document}
+\markdownInput{./example.md}
+\end{document}
